@@ -1,0 +1,40 @@
+AnswerOnlyIntent {Answer}
+
+AMAZON.StartOverIntent start interview
+AMAZON.StartOverIntent start practice
+AMAZON.StartOverIntent start practice interview
+AMAZON.StartOverIntent start practice session
+AMAZON.StartOverIntent start interview session
+AMAZON.StartOverIntent new practice
+AMAZON.StartOverIntent new interview
+AMAZON.StartOverIntent new practice interview
+AMAZON.StartOverIntent new practice session
+AMAZON.StartOverIntent new interview session
+AMAZON.StartOverIntent start
+AMAZON.StartOverIntent start new interview
+AMAZON.StartOverIntent start new practice
+AMAZON.StartOverIntent start new practice interview
+AMAZON.StartOverIntent start new practice session
+AMAZON.StartOverIntent start new interview session
+AMAZON.StartOverIntent practice interview
+AMAZON.StartOverIntent help me practice an interview
+
+NotDoneIntent one
+NotDoneIntent one two
+NotDoneIntent one two three
+NotDoneIntent one two three four
+NotDoneIntent one two three four five
+NotDoneIntent one two three four five six
+NotDoneIntent one two three four five six seven
+
+DoneIntent I'm done
+DoneIntent Yes I'm done
+DoneIntent i don't know that
+DoneIntent who knows
+DoneIntent i don't know
+DoneIntent That's it
+DoneIntent don't know
+DoneIntent skip
+DoneIntent i don't know this question
+DoneIntent i don't know that one
+DoneIntent dunno
