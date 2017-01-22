@@ -513,8 +513,13 @@ function handleAnswerRequest(intent, session, callback) {
                 "questions": gameQuestions,
                 "score": currentScore,
                 };
-            callback(sessionAttributes,
-                buildSpeechletResponse(CARD_TITLE, "Okay. Now. " + speechOutput, repromptText, false));
+            if(currentQuestionIndex == Math.ceil(GAME_LENGTH/2))
+                callback(sessionAttributes,
+                    buildSpeechletResponse(CARD_TITLE, "Okay. Now time for technical questions. Please get a piece of paper and a pen. " + speechOutput, repromptText, false));
+            else {
+                callback(sessionAttributes,
+                    buildSpeechletResponse(CARD_TITLE, "Okay. Now. " + speechOutput, repromptText, false));
+                }
             
 
         }
