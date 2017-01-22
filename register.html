@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>Registration</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="mystyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+	</head>
+	<body>
+		<div id="naviBar">
+            <div class="siteTitle">
+                <h1>Interview Analysis</h1>
+            </div>
+            <div class="naviButton">
+                <a href="profile.html" target="_self">Profile</a>
+            </div>
+            <div class="naviButton">
+                <a>Interview</a>
+            </div>
+            <div class="naviButton">
+                <a>About</a>
+            </div>
+            <div class="naviButton">
+                <a href="index.html" target="_self">Home</a>
+            </div>
+        </div>
+		<h2>Registration</h2>
+		<form method="POST">
+			<div class="control-group">
+				<label class="control-label" for="username">Username</label>
+				<div class="controls">
+					<input name="name" type="text" class="reg-input" placeholder="Create a username" />
+					<p class="help-block">Username can contain any letters or numbers, without spaces</p>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="password">Password</label>
+				<div class="controls">
+					<input name="pass" type="password" class="reg-input" placeholder="Create a password" />
+					<p class="help-block">Password should be at least 4 characters long.</p>
+				</div>
+			</div>
+
+			<h2>Profile Set-up</h2>
+
+			<div class="control-group">
+				<label class="control-label" for="First name">First name</label>
+				<div class="controls">
+					<input name="fname" type="name" class="reg-input" placeholder="First name" style="margin-bottom: 10px;"/>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="Last name">Last name</label>
+				<div class="controls">
+					<input name="lname" type="name" class="reg-input" placeholder="Last name" style="margin-bottom: 10px;" />
+				</div>
+			</div>
+
+			<input type="hidden" name="count" value="1">
+			<div class="control-group" id="fields">
+				<label class="control-label" for="field1">Skills</label>
+				<div class="controls" id="profs">
+					<div id="field">
+						<input  autocomplete="off" class="reg-input input" id="field1" name="prof1" type="text" placeholder="Enter a skill" data-items="8" style="margin-bottom: 10px;" />
+						<button id="b1" class="btn add-more" type="button">+</button>
+					</div>
+				</div>
+			</div>
+
+			<input type="hidden" name="count" value="1">
+			<div class="control-group" id="fields">
+				<label class="control-label" for="field1">Projects</label>
+				<div class="controls" id="profs">
+					<div id="field2">
+						<input  autocomplete="off" class="reg-input input" id="field1" name="prof1" type="text" placeholder="Project name" data-items="8" style="margin-bottom: 10px;" />
+						<button id="b1" class="btn add-more2" type="button">+</button>
+					</div>
+				</div>
+			</div>
+
+            <input type="submit" value="Submit" style="margin-top: 10px;"/>
+        </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+        	$(document).ready(function(){
+			    var next = 1;
+			    $(".add-more").click(function(e){
+			        e.preventDefault();
+			        var addto = "#field" + next;
+			        var addRemove = "#field" + (next);
+			        next = next + 1;
+			        var newIn = '<input style="margin-bottom: 10px;" autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text" >';
+			        var newInput = $(newIn);
+			        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+			        var removeButton = $(removeBtn);
+			        $(addto).after(newInput);
+			        $(addRemove).after(removeButton);
+			        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+			        $("#count").val(next);  
+			        
+			            $('.remove-me').click(function(e){
+			                e.preventDefault();
+			                var fieldNum = this.id.charAt(this.id.length-1);
+			                var fieldID = "#field" + fieldNum;
+			                $(this).remove();
+			                $(fieldID).remove();
+			            });
+			    });
+
+			    var next1 = 1;    
+			    $(".add-more2").click(function(e){
+			        e.preventDefault();
+			        var addto = "#field2" + next1;
+			        var addRemove = "#field2" + (next1);
+			        next1 = next1 + 1;
+			        var newIn = '<input style="margin-bottom: 10px;" autocomplete="off" class="input form-control" id="field2' + next1 + '" name="field2' + next1 + '" type="text" >';
+			        var newInput = $(newIn);
+			        var removeBtn = '<button id="remove' + (next1 - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field2">';
+			        var removeButton = $(removeBtn);
+			        $(addto).after(newInput);
+			        $(addRemove).after(removeButton);
+			        $("#field2" + next1).attr('data-source',$(addto).attr('data-source'));
+			        $("#count").val(next1);  
+			        
+			            $('.remove-me').click(function(e){
+			                e.preventDefault();
+			                var fieldNum = this.id.charAt(this.id.length-1);
+			                var fieldID = "#field2" + fieldNum;
+			                $(this).remove();
+			                $(fieldID).remove();
+			            });
+			    });
+    
+			});
+        </script>
+	</body>
+</html>
