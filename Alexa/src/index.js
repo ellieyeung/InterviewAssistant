@@ -292,7 +292,7 @@ function onIntent(intentRequest, session, callback) {
     }
 }
 
-function done(intent, session, callback){
+/*function done(intent, session, callback){
     var speechOutput = "And?";
     callback(session.attributes,
             buildSpeechletResponse(CARD_TITLE, speechOutput, speechOutput, false));
@@ -302,7 +302,7 @@ function continu(intent, session, callback){
     var speechOutput = "Please continue.";
     callback(session.attributes,
         buildSpeechletResponse(CARD_TITLE, speechOutput, speechOutput, false));
-}
+}*/
 
 /**
  * Called when the user ends the session.
@@ -514,7 +514,7 @@ function handleAnswerRequest(intent, session, callback) {
                 "score": currentScore,
                 };
             callback(sessionAttributes,
-                buildSpeechletResponse(CARD_TITLE, speechOutput, repromptText, false));
+                buildSpeechletResponse(CARD_TITLE, "Okay. Now. " + speechOutput, repromptText, false));
             
 
         }
