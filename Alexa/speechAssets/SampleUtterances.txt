@@ -38,3 +38,14 @@ DoneIntent skip
 DoneIntent i don't know this question
 DoneIntent i don't know that one
 DoneIntent dunno
+
+GeneralQuestionIntent give me a question
+GeneralQuestionIntent give me a general question
+GeneralQuestionIntent a question
+GeneralQuestionIntent a general question
+GeneralQuestionIntent please give me a question
+GeneralQuestionIntent please give me a general question
+
+TechnicalQuestionIntent give me a technical question
+TechnicalQuestionIntent a technical question
+TechnicalQuestionIntent please give me a technical question

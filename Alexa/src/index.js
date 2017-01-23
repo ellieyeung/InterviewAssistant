@@ -284,6 +284,10 @@ function onIntent(intentRequest, session, callback) {
         handleFinishSessionRequest(intent, session, callback);
     } else if ("AMAZON.CancelIntent" === intentName) {
         handleFinishSessionRequest(intent, session, callback);
+    } else if ("GeneralQuestionIntent" === intentName) {
+        handleGeneralQuestionRequest(intent, session, callback);
+    } else if ("TechnicalQuestionIntent" === intentName) {
+        handleTechnicalQuestionRequest(intent, session, callback);
     }
 }
 
@@ -298,6 +302,73 @@ function continu(intent, session, callback){
     callback(session.attributes,
         buildSpeechletResponse(CARD_TITLE, speechOutput, speechOutput, false));
 }*/
+
+function handleGeneralQuestionRequest(intent, session, callback){
+    var sessionAttributes = {},
+        //CHANGE THIS TEXT
+        speechOutput = "",
+        shouldEndSession = false,
+
+        gameQuestions = [];
+    var rand = Math.floor(Math.random() * questions.length);
+    gameQuestions.push(rand);
+
+    var correctAnswerIndex = Math.floor(Math.random() * (ANSWER_COUNT)), // Generate a random index for the correct answer, from 0 to 3
+        roundAnswers = populateRoundAnswers(gameQuestions, 0, correctAnswerIndex),
+
+        currentQuestionIndex = 0,
+        spokenQuestion = Object.keys(questions[gameQuestions[currentQuestionIndex]]),
+        repromptText = spokenQuestion,
+
+        i, j;
+
+    for (i = 0; i < ANSWER_COUNT; i++) {
+        repromptText += "";
+    }
+    speechOutput += repromptText;
+    sessionAttributes = {
+        "speechOutput": repromptText,
+        "repromptText": repromptText,
+        "currentQuestionIndex": currentQuestionIndex,
+        "questions": gameQuestions,
+            };
+    callback(sessionAttributes,
+        buildSpeechletResponse(CARD_TITLE, speechOutput, repromptText, true));
+}
+
+function handleTechnicalQuestionRequest(intent, session, callback){
+    var sessionAttributes = {},
+        //CHANGE THIS TEXT
+        speechOutput = "",
+        shouldEndSession = false,
+
+        gameQuestions = [];
+        rand = Math.floor(Math.random() * technical_questions.length);
+    gameQuestions.push(rand);
+
+    var correctAnswerIndex = Math.floor(Math.random() * (ANSWER_COUNT)), // Generate a random index for the correct answer, from 0 to 3
+        roundAnswers = populateRoundAnswers(gameQuestions, 0, correctAnswerIndex),
+
+        currentQuestionIndex = 0,
+        spokenQuestion = Object.keys(technical_questions[gameQuestions[currentQuestionIndex]]),
+        repromptText = spokenQuestion,
+
+        i, j;
+
+    for (i = 0; i < ANSWER_COUNT; i++) {
+        repromptText += "";
+    }
+    speechOutput += repromptText;
+    sessionAttributes = {
+        "speechOutput": repromptText,
+        "repromptText": repromptText,
+        "currentQuestionIndex": currentQuestionIndex,
+        "questions": gameQuestions,
+            };
+    callback(sessionAttributes,
+        buildSpeechletResponse(CARD_TITLE, speechOutput, repromptText, true));
+    
+}
 
 /**
  * Called when the user ends the session.

@@ -25,6 +25,12 @@
       "intent": "DoneIntent"
     },
     {
+      "intent": "GeneralQuestionIntent"
+    },
+    {
+      "intent": "TechnicalQuestionIntent"
+    },
+    {
       "intent": "AMAZON.StartOverIntent"
     },
     {
