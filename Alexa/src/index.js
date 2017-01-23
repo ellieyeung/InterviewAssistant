@@ -114,11 +114,6 @@ var questions = [
         ]
     },
     {
-        "Can you explain why you changed career paths?": [
-            ""
-        ]
-    },
-    {
         "How do you deal with pressure or stressful situations?": [
             ""
         ]
@@ -148,6 +143,11 @@ var questions = [
             ""
         ]
     },
+    {
+        "Have you ever worked in a customer support or client facing role?": [
+            ""
+        ]
+    },
 ];
 var technical_questions = [
     {
@@ -167,11 +167,6 @@ var technical_questions = [
     },
     {
         "What’s an example of a time you helped a non-technical person with a technical problem, and how did you explain it to them?": [
-            ""
-        ]
-    },
-    {
-        "Have you ever worked in a customer support or client facing role?": [
             ""
         ]
     },
@@ -327,7 +322,6 @@ function getWelcomeResponse(callback) {
     var sessionAttributes = {},
         //CHANGE THIS TEXT
         speechOutput = "I will ask you " + GAME_LENGTH.toString()
-            + " questions, try to get as many right as you can. Let's begin. ",
         shouldEndSession = false,
 
         gameQuestions = populateGameQuestions(),
