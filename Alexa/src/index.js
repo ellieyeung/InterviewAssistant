@@ -322,6 +322,7 @@ function getWelcomeResponse(callback) {
     var sessionAttributes = {},
         //CHANGE THIS TEXT
         speechOutput = "I will ask you " + GAME_LENGTH.toString()
+            + " questions, try to answer as many as you can. Let's begin. ",
         shouldEndSession = false,
 
         gameQuestions = populateGameQuestions(),
